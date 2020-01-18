@@ -6,7 +6,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePessoaTelefonesTable extends Migration
 {
-  
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('pessoa_telefones', function (Blueprint $table) {
@@ -19,7 +23,11 @@ class CreatePessoaTelefonesTable extends Migration
         });
     }
 
-  
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::table('pessoa_telefones', function (Blueprint $table) {
