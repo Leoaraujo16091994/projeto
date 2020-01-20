@@ -52,8 +52,6 @@ class PessoaController extends Controller
 
     public function update(Request $request, $id)
     {
-
-        dd("oi");
       
         $pessoa = Pessoa::find($id);
         $pessoa->fill($request->all());
@@ -74,6 +72,10 @@ class PessoaController extends Controller
 
     public function destroy($id)
     {
-        return Pessoa::destroy($id);
+        $variavel = PessoaTelefone::where('pessoa_id',$id)->delete();
+        $var = Pessoa::where('id',$id)->delete();
+
+        return redirect ("pessoas");
+    
     }
 }

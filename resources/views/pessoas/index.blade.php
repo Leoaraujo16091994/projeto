@@ -63,10 +63,16 @@
                             <span class="glyphicon glyphicon-pencil"> </span>
                         </a>
     
-                        <form action="/pessoas/{{$pessoa->id}}" method="DELETE">
-                            <button type="submit">
+                       
+                        <form method="POST" action="/pessoas/{{$pessoa->id}}">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+
+                            <div class="form-group">
+                                <button type="submit">
                                 <span class="glyphicon glyphicon-trash"></span>
-                            </button>
+                                </button>
+                            </div>
                         </form>
                     </td>
                 </tr>

@@ -101,8 +101,8 @@
 
                this.model.telefones.splice(index, 1);
             }, salvar: function () {
-               axios.put('/models', this.model).then((response) => {
-                  window.location = '/models';
+               axios.put('/pessoas/'+ this.model.id, this.model).then((response) => {
+                  window.location = '/pessoas';
                }, (err) => {
                   window.alert('Ops! Ocorreu um erro durante o cadastro, verifique suas informações.');
                   console.log('erro: '+err);
