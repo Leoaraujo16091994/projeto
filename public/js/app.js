@@ -2180,6 +2180,112 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PesquisaPessoa.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PesquisaPessoa.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      pesquisa: {},
+      pessoas: []
+    };
+  },
+  methods: {
+    pesquisar: function pesquisar() {
+      var ctr = this;
+      axios.post('/pessoas/pesquisar', this.pesquisa).then(function (response) {
+        console.log(response.data);
+        ctr.pessoas = response.data;
+      }, function (error) {
+        console.log('Erro: ' + error.data);
+      });
+    },
+    cadastrar: function cadastrar() {
+      window.location = "/pessoas/create";
+    },
+    editar: function editar(id) {
+      window.location = "/pessoas/" + id + "/edit";
+    },
+    excluir: function excluir(id) {
+      if (window.confirm('Tem certeza disso?')) {
+        var ctr = this;
+        axios["delete"]('/pessoas/' + id).then(function (response) {
+          window.alert("Deletado com sucesso");
+          var index = ctr.pessoas.map(function (e) {
+            return e.id;
+          }).indexOf(id);
+          this.pessoas.splice(index, 1);
+        }, function (error) {
+          console.log('Erro: ' + error.data);
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -38185,6 +38291,209 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PesquisaPessoa.vue?vue&type=template&id=284fd2b2&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PesquisaPessoa.vue?vue&type=template&id=284fd2b2& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "form-row align-items-center" }, [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("label", { attrs: { for: "validationnomeCompleto" } }, [
+          _vm._v(" Nome Completo ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "sr-only", attrs: { for: "inlineFormInput" } },
+          [_vm._v("Nome Completo")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.pesquisa.nome_completo,
+              expression: "pesquisa.nome_completo"
+            }
+          ],
+          staticClass: "form-control mb-2",
+          attrs: {
+            type: "text",
+            id: "inlineFormInput",
+            placeholder: "Nome Completo"
+          },
+          domProps: { value: _vm.pesquisa.nome_completo },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.pesquisa, "nome_completo", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("label", [_vm._v(" Cpf")]),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "sr-only", attrs: { for: "inlineFormInput" } },
+          [_vm._v("Cpf")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.pesquisa.cpf,
+              expression: "pesquisa.cpf"
+            }
+          ],
+          staticClass: "form-control mb-2",
+          attrs: { type: "text", id: "inlineFormInput", placeholder: "Cpf" },
+          domProps: { value: _vm.pesquisa.cpf },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.pesquisa, "cpf", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-auto" }, [
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary mb-2",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                return _vm.pesquisar()
+              }
+            }
+          },
+          [_vm._v("Pesquisar")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary mb-2",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.cadastrar()
+              }
+            }
+          },
+          [_vm._v("Cadastrar")]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-bordered col-md-7" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.pessoas, function(pessoa) {
+          return _c("tr", { key: pessoa.id }, [
+            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(pessoa.id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pessoa.nome_completo))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pessoa.email))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pessoa.cpf))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pessoa.data_nascimento))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pessoa.telefones.length))]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                {
+                  staticClass: "actions edit",
+                  on: {
+                    click: function($event) {
+                      return _vm.editar(pessoa.id)
+                    }
+                  }
+                },
+                [_c("span", { staticClass: "glyphicon glyphicon-pencil" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "actions edit",
+                  on: {
+                    click: function($event) {
+                      return _vm.excluir(pessoa.id)
+                    }
+                  }
+                },
+                [_c("span", { staticClass: "glyphicon glyphicon-trash" })]
+              )
+            ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome Completo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("E-mail")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Cpf")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Idade")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Qtd.Telefones")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ações")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -50367,6 +50676,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+Vue.component('pesquisa-pessoa', __webpack_require__(/*! ./components/PesquisaPessoa.vue */ "./resources/js/components/PesquisaPessoa.vue")["default"]);
 Vue.component('formulario-pessoa', __webpack_require__(/*! ./components/FormularioPessoa.vue */ "./resources/js/components/FormularioPessoa.vue")["default"]);
 Vue.component('formulario-pessoa-edicao', __webpack_require__(/*! ./components/FormularioPessoaEdicao.vue */ "./resources/js/components/FormularioPessoaEdicao.vue")["default"]);
 /**
@@ -50559,6 +50869,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormularioPessoaEdicao_vue_vue_type_template_id_bd2e6caa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormularioPessoaEdicao_vue_vue_type_template_id_bd2e6caa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PesquisaPessoa.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/PesquisaPessoa.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PesquisaPessoa_vue_vue_type_template_id_284fd2b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PesquisaPessoa.vue?vue&type=template&id=284fd2b2& */ "./resources/js/components/PesquisaPessoa.vue?vue&type=template&id=284fd2b2&");
+/* harmony import */ var _PesquisaPessoa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PesquisaPessoa.vue?vue&type=script&lang=js& */ "./resources/js/components/PesquisaPessoa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PesquisaPessoa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PesquisaPessoa_vue_vue_type_template_id_284fd2b2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PesquisaPessoa_vue_vue_type_template_id_284fd2b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PesquisaPessoa.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PesquisaPessoa.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/PesquisaPessoa.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PesquisaPessoa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PesquisaPessoa.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PesquisaPessoa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PesquisaPessoa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PesquisaPessoa.vue?vue&type=template&id=284fd2b2&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/PesquisaPessoa.vue?vue&type=template&id=284fd2b2& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PesquisaPessoa_vue_vue_type_template_id_284fd2b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PesquisaPessoa.vue?vue&type=template&id=284fd2b2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PesquisaPessoa.vue?vue&type=template&id=284fd2b2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PesquisaPessoa_vue_vue_type_template_id_284fd2b2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PesquisaPessoa_vue_vue_type_template_id_284fd2b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

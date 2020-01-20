@@ -8,9 +8,9 @@
             <div id = "titulopagina">
                 <h1> Cadastro de Pessoas </h1>                
             </div>
-        <br>
+            <br>
 
-        <formulario-pessoa></formulario-pessoa>
+            <formulario-pessoa></formulario-pessoa>
 
         </div>
         <script src="/js/app.js"></script>

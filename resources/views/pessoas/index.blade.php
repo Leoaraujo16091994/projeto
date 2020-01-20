@@ -8,76 +8,16 @@
 </head>
 
     <body>
-
+    <div id="app">
         <div id="titulopagina">
             <h1> Pessoas </h1>
         </div>
 
         <br>
 
-        <form>
-            <div class="form-row align-items-center">
-                <div class="col-md-3">
-                    <label for="validationnomeCompleto"> Nome Completo </label>
-                    <label class="sr-only" for="inlineFormInput">Nome Completo</label>
-                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Nome Completo">
-                </div>
-                <div class="col-md-3">
-                    <label> Cpf</label>
-                    <label class="sr-only" for="inlineFormInput">Cpf</label>
-                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Cpf">
-                </div>
-                <div class="col-auto">
-                    <br>
-                    <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
-                    <button type="button" class="btn btn-primary mb-2" onclick="window.location='/pessoas/create'">Cadastrar</button>
-                </div>
-            </div>
-        </form>
-
-        <table class="table table-bordered col-md-7">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nome Completo</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Cpf</th>
-                    <th scope="col">Idade</th>
-                    <th scope="col">Qtd.Telefones</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($pessoa as $pessoa)
-                <tr>
-                    <th scope="row">{{ $pessoa->id }}</th>
-                    <td>{{$pessoa->nome_completo}}</td>
-                    <td>{{$pessoa->email }}</td>
-                    <td>{{$pessoa->cpf}}</td>
-                    <td>
-                        {{ date('Y') - Carbon\Carbon::parse($pessoa->data_nascimento)->format('Y') }}
-                    </td>
-                    <td></td>
-                    <td>
-                        <a href="/pessoas/{{$pessoa->id}}/edit" class="actions edit">
-                            <span class="glyphicon glyphicon-pencil"> </span>
-                        </a>
-    
-                       
-                        <form method="POST" action="/pessoas/{{$pessoa->id}}">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-
-                            <div class="form-group">
-                                <button type="submit">
-                                <span class="glyphicon glyphicon-trash"></span>
-                                </button>
-                            </div>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <pesquisa-pessoa></pesquisa-pessoa>
+</div>
+        
+        <script src="/js/app.js"></script>
     </body>
 </html>

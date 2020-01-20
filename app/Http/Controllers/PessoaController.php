@@ -9,9 +9,24 @@ use Illuminate\Http\Request;
 class PessoaController extends Controller
 {
     
+    public function pesquisar(Request $request)
+    {
+        $pesquisa = Pessoa::with('telefones');
+
+        if ($request->nome_completo) {
+            $pesquisa->whereRaw("nome_completo like '%".$request->nome_completo."%'");
+        }
+
+        if ($request->cpf) {
+            $pesquisa->whereRaw("cpf like '%".$request->cpf."%'");
+        }
+
+        return $pesquisa->get();
+    }
+
     public function index()
     {
-        return view("pessoas.index")->with(['pessoa' => Pessoa::all()]);
+        return view("pessoas.index");
     }
 
     
@@ -72,10 +87,10 @@ class PessoaController extends Controller
 
     public function destroy($id)
     {
-        $variavel = PessoaTelefone::where('pessoa_id',$id)->delete();
-        $var = Pessoa::where('id',$id)->delete();
+        PessoaTelefone::where('pessoa_id',$id)->delete();
+        Pessoa::where('id',$id)->delete();
 
-        return redirect ("pessoas");
+        return 'true';
     
     }
 }
